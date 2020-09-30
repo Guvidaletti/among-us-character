@@ -1,0 +1,93 @@
+@import "../../assets/styles/default.scss";
+$rootClassName: component-character;
+:export {
+  rootClassName: $rootClassName;
+}
+
+.#{$rootClassName} {
+  position: fixed;
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4px;
+  padding-top: 20px;
+  box-sizing: border-box;
+  top: 500px;
+
+  &.#{$rootClassName}-left {
+    transform: rotateY(180deg);
+  }
+  &.#{$rootClassName}-walking {
+    // background-color: gold;
+    .#{$rootClassName}-body {
+      animation: jumping 0.4s infinite; //500ms * 4
+      animation-delay: 0.1s;
+    }
+    .#{$rootClassName}-arm {
+      animation: armjumping 0.4s infinite; //500ms * 4
+      animation-delay: 0.1s;
+    }
+  }
+
+  .#{$rootClassName}-arm {
+    z-index: $z-index-character-arm;
+    width: 13px;
+    position: absolute;
+    margin-right: 70px;
+    align-self: center;
+  }
+
+  .#{$rootClassName}-body {
+    z-index: $z-index-character-body;
+  }
+
+  .#{$rootClassName}-ground {
+    z-index: $z-index-character-ground;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes jumping {
+  0% {
+    transform: translateY(-10px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  49% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes armjumping {
+  0% {
+    transform: translateY(-10px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  49% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
