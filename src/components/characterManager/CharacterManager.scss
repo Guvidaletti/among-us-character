@@ -1,13 +1,11 @@
 @import "../../assets/styles/default.scss";
-$rootClassName: component-character;
+$rootClassName: component-character-manager;
 :export {
   rootClassName: $rootClassName;
 }
 
 .#{$rootClassName} {
   position: relative;
-  top: 0;
-  left: 0;
   display: flex;
   width: 100px;
   justify-content: center;
@@ -47,6 +45,7 @@ $rootClassName: component-character;
     z-index: $z-index-character-ground;
     position: absolute;
     bottom: 0;
+    transform: translateX(5px);
   }
 }
 
